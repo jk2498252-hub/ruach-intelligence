@@ -13,7 +13,7 @@ Status labels: **DONE** is implemented and tested locally; **PLANNED** is not im
 | V0.1 | M7 Presentation | Versioned projector state, persistent safe presets, authenticated private preview, clean broadcast output | DONE (M7.1–M7.4) |
 | V0.1 | M8 Live Session | Persisted prepared → live → ended lifecycle, live gates, immutable ended boundary, owner/admin post-end audit access | DONE (M8.1–M8.2) |
 | V0.1 | M9 Sermon Archive | Deterministic immutable archive, bounded metadata catalog and authorized single-record retrieval | DONE (M9.1–M9.2) |
-| V0.1 | M10 Congregation Live | M10.1 next: opt-in read-only congregation session link for approved live scripture; QR/notes later | PLANNED |
+| V0.1 | M10 Congregation Live | M10.1: opt-in tokenized read-only live scripture link; notes/QR later | IN PROGRESS (M10.1 DONE) |
 | V0.1 | M11 Resilience | Offline behavior, crash recovery and sync | PLANNED |
 | V0.2 | M12 Sermon Intelligence | Reviewed sermon points, references and summary | PLANNED |
 | V0.2 | M13 Communication | Reviewed WhatsApp-ready recap and descriptions | PLANNED |

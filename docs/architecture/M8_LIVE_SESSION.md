@@ -28,6 +28,12 @@ The lower-level `Core.start_session(..., live=True)` helper retains its historic
 
 The complete M1–M8.1 suite passes **67 tests**. Tests cover persistence across restart, refusal to restart an ended service, ending while scripture is live, HTTP refusal before Start Live and after End Live, operator controls, and audio using the same live gate.
 
-## Next slice
+## M8.2 accepted slice — immutable ended-service boundary
 
-M8.2 will make the ended-service boundary immutable from the operator path and expose a read-only ended-service summary. Archive construction remains M9.
+Once a service is ended, operator mutations are refused: approve/reject, correction, held-candidate resolution/dismissal and private preview are all closed, in addition to the M8.1 live input/output gates.
+
+An ended service is auditable but not actionable. `service_summary()` exposes lifecycle timestamps and aggregate counts only; it intentionally contains no sermon transcript text or canonical scripture payload. The service owner and an administrator may read the ended-service summary and ordered ledger after restart, while unrelated operators are denied. The review queue refuses ended services and directs callers to the read-only summary.
+
+## M8 acceptance
+
+The complete M1–M8 suite passes **71 tests**. Archive construction remains M9.

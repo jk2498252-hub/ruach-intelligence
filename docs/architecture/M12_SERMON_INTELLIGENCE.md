@@ -27,6 +27,17 @@ A draft contains a bounded title, summary, sermon-point list and archive-backed 
 
 The complete M1–M12.1 suite passes **98 tests**. No automatic model generation is included in M12.1.
 
-## Next slice
+## M12.2 accepted slice — optional provider-neutral model draft adapter
 
-M12.2 may add an optional model-draft producer, but generated material must enter only as `draft` with explicit provider/model provenance and remain subject to the same human approval gate.
+- Model calls consume a bounded structured projection of the already-verified sealed archive.
+- The provider call happens outside the SQLite transaction.
+- Provider/model labels, archive hash, canonical model-input hash, canonical response hash, requesting operator and timestamp are stored in an immutable model-run provenance table.
+- Provider output is revalidated by RUACH's existing title/summary/point bounds and archive-event citation rules before any draft is committed.
+- Provider/network failures and invalid citations create no draft and no provenance row.
+- Manual/API callers cannot claim `source_kind=model_draft`; only the configured provider path can create that provenance class.
+- The model-generation HTTP endpoint is private to the archive owner/admin and returns 501 when no provider adapter is configured.
+- Generated material always enters status `draft`; only the separate M12.1 human review action can approve or reject it.
+
+## M12 acceptance
+
+The complete M1–M12 suite passes **102 tests**. M12 provides reviewed sermon intelligence, not autonomous church doctrine or publication.

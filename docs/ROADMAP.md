@@ -21,9 +21,9 @@ Status labels: **DONE** is implemented and tested locally; **PLANNED** is not im
 | V0.3 | M15 Church Memory | Immutable owner/admin-scoped lexical search index built only from approved sermon intelligence | DONE |
 | V0.3 | M16 Ask RUACH | Read-only grounded answers from approved Church Memory and approved content time ranges, with citation whitelisting | DONE |
 | V0.3 | M17 Knowledge Governance | Append-only correction, suppression and restore overlays without deleting sealed evidence | DONE |
-| V0.4 | M18 Multilingual Intelligence | Tested English/Kiswahili code switching, later languages | PLANNED |
-| V0.4 | M19 Discipleship | Reviewed weekly and small-group material | PLANNED |
-| V0.4 | M20 Member Intelligence | Saved notes and church-scoped assistant | PLANNED |
+| V0.4 | M18 Multilingual Intelligence | Explicit approved-memory language profiles and English/Kiswahili code-switch-aware retrieval | DONE |
+| V0.4 | M19 Discipleship | Reviewed weekly-reflection/small-group drafts from approved intelligence, optional model proposals, citation gating | DONE |
+| V0.4 | M20 Member Intelligence | Consent-first pseudonymous workspace, saved notes and approved-memory assistant; no inferred profiling/scoring | DONE (privacy-conservative scope) |
 | Production | M21 Security & Privacy | Identity, authorization, encryption, retention | PLANNED |
 | Production | M22 Deployment & Updates | Installer, updates, restore and diagnostics | PLANNED |
 | Production | M23 Church Pilots | On-site evaluation and failure reporting | PLANNED |
@@ -41,6 +41,6 @@ Security and privacy work begins at M1; M21 is the production hardening gate, no
 6. **M1.6 Evidence:** decision record, evidence labels, translation and privacy gates. ✓
 7. **M1.7 Tests:** positive, false positive, gate and persistence checks. ✓
 
-**Next batch: M18–M20.** Extend the approved-memory layer for explicit English/Kiswahili language metadata and code-switch-aware retrieval, add reviewed discipleship material, and add a consent-first member workspace without inferred member profiling. M14–M17 are complete and remain review-first/read-only where applicable. M5.2 remains a field-evidence gate: obtain reviewed permission and a human-labeled holdout corpus, then measure transcription and detector errors on real English/Kiswahili audio. M4.4 contextual and quotation recognition depends on that evidence before it enters the display path. M3.4 requires permissioned recordings, accuracy/latency measures and browser-microphone testing. Other editions need individual source and rights review.
+**Next batch: M21–M22.** Production-hardening work: tighten authentication/session/secret handling and privacy lifecycle, then add backup/restore/versioned deployment diagnostics and update-verification hooks. M23 remains a real-world church-pilot evidence gate and cannot be completed by unit tests alone. M5.2 remains a field-evidence gate: obtain reviewed permission and a human-labeled holdout corpus, then measure transcription and detector errors on real English/Kiswahili audio. M4.4 contextual and quotation recognition depends on that evidence before it enters the display path. M3.4 requires permissioned recordings, accuracy/latency measures and browser-microphone testing. Other editions need individual source and rights review.
 
 Before a church pilot, finish operator authentication, full spoken reference detection, offline performance and on-site accuracy evaluation. The [cross-model review](reviews/M2.1_DISPOSITION.md) is triaged against source and tests. Model agreement alone is not a gate.

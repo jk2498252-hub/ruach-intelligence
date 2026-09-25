@@ -1,6 +1,6 @@
 # RUACH Intelligence
 
-RUACH carries a church service from the pulpit to the screen, congregation, week, and church memory. **M1 Structural Core**, **M2.3 two complete Bible editions**, **M3.3 optional transcription**, **M4.3 detector regression tests**, **M5.1 an evaluation harness**, and **M6.3b local operator sign-in, owned sessions and explicit projector routing** and **M7.1 reconnect-safe projector presentation** are implemented. The product roadmap is in [docs/ROADMAP.md](docs/ROADMAP.md).
+RUACH carries a church service from the pulpit to the screen, congregation, week, and church memory. **M1 Structural Core**, **M2.3 two complete Bible editions**, **M3.3 optional transcription**, **M4.3 detector regression tests**, **M5.1 an evaluation harness**, and **M6.3b local operator sign-in, owned sessions and explicit projector routing** and **M7.1 reconnect-safe projector presentation** and **M7.2 allow-listed presentation presets** are implemented. The product roadmap is in [docs/ROADMAP.md](docs/ROADMAP.md).
 
 ## Run the local proof
 
@@ -35,9 +35,9 @@ Baseline imported to GitHub from the saved **RUACH_Intelligence_M6_3b** checkpoi
 
 Local verification before import:
 
-- **53 tests passed**
+- **57 tests passed**
 - **357 detector subtests remain passing**
-- Next implementation bite: **M7.2 Presentation themes/layout presets**
+- Next implementation bite: **M7.3 presentation preview/broadcast hardening**
 
 ## Contracts and decisions
 

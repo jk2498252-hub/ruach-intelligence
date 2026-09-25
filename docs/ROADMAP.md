@@ -15,7 +15,7 @@ Status labels: **DONE** is implemented and tested locally; **PLANNED** is not im
 | V0.1 | M9 Sermon Archive | Deterministic immutable archive, bounded metadata catalog and authorized single-record retrieval | DONE (M9.1–M9.2) |
 | V0.1 | M10 Congregation Live | Tokenized read-only live scripture, explicit operator notes, optional authorized QR delivery | DONE (M10.1–M10.3) |
 | V0.1 | M11 Resilience | Startup reconciliation, transaction/integrity degraded mode, external-dependency/offline failure behavior | DONE (M11.1–M11.3) |
-| V0.2 | M12 Sermon Intelligence | M12.1: immutable archive-bound reviewed draft container; optional model draft generation later | IN PROGRESS (M12.1 DONE) |
+| V0.2 | M12 Sermon Intelligence | Archive-bound immutable reviewed drafts plus optional provider-neutral model draft adapter with immutable provenance | DONE (M12.1–M12.2) |
 | V0.2 | M13 Communication | Reviewed WhatsApp-ready recap and descriptions | PLANNED |
 | V0.2 | M14 Content Intelligence | Chapters, excerpts and clip suggestions | PLANNED |
 | V0.3 | M15 Church Memory | Church-scoped sermon search | PLANNED |

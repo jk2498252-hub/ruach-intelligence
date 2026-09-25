@@ -31,3 +31,18 @@ The complete M1–M7.1 unit suite passes: **53 tests**. Physical projector/brows
 ## Deferred to later M7 slices
 
 Theme/layout presets, broadcast-specific output, transitions, operator preview, and visual device testing are not part of M7.1.
+
+
+## M7.2 accepted slice
+
+M7.2 adds operator-selectable presentation presets while keeping the renderer closed to arbitrary CSS or HTML.
+
+- Themes are allow-listed: `dark`, `light`, and `high_contrast`.
+- Layouts are allow-listed: `centered` and `lower_third`.
+- Preferences are persisted in SQLite and survive restart.
+- A preset change advances the presentation revision so connected projector clients update without a scripture-state mutation.
+- Invalid theme/layout values fail closed before any database or revision change.
+- The browser maps the returned enum values only to static CSS selectors; there is no `style.cssText`, arbitrary style string, or HTML injection path.
+- When a projector session is selected, a `presentation.changed` ledger event records the actor and selected preset.
+
+Focused M7.2 tests plus the entire existing suite pass: **57 tests**.

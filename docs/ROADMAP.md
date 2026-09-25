@@ -16,11 +16,11 @@ Status labels: **DONE** is implemented and tested locally; **PLANNED** is not im
 | V0.1 | M10 Congregation Live | Tokenized read-only live scripture, explicit operator notes, optional authorized QR delivery | DONE (M10.1–M10.3) |
 | V0.1 | M11 Resilience | Startup reconciliation, transaction/integrity degraded mode, external-dependency/offline failure behavior | DONE (M11.1–M11.3) |
 | V0.2 | M12 Sermon Intelligence | Reviewed archive-bound drafts and optional provider-neutral model draft adapter | DONE (M12.1–M12.2) |
-| V0.2 | M13 Communication | M13.1 reviewed WhatsApp/video draft container; M13.2 optional model proposal with separate human approval | IN PROGRESS (M13.1–M13.2 DONE) |
-| V0.2 | M14 Content Intelligence | Next: archive-grounded reviewed chapter/excerpt/clip suggestions with optional model proposals | PLANNED |
-| V0.3 | M15 Church Memory | Church-scoped sermon search | PLANNED |
-| V0.3 | M16 Ask RUACH | Grounded answers with source links and timecodes | PLANNED |
-| V0.3 | M17 Knowledge Governance | Church approvals, correction and removal | PLANNED |
+| V0.2 | M13 Communication | Reviewed WhatsApp/video drafts plus optional provider-neutral model proposals with separate human approval | DONE (M13.1–M13.2) |
+| V0.2 | M14 Content Intelligence | Archive-grounded reviewed chapter/excerpt/clip suggestions plus optional model proposals; no media cutting/publishing | DONE |
+| V0.3 | M15 Church Memory | Immutable owner/admin-scoped lexical search index built only from approved sermon intelligence | DONE |
+| V0.3 | M16 Ask RUACH | Read-only grounded answers from approved Church Memory and approved content time ranges, with citation whitelisting | DONE |
+| V0.3 | M17 Knowledge Governance | Append-only correction, suppression and restore overlays without deleting sealed evidence | DONE |
 | V0.4 | M18 Multilingual Intelligence | Tested English/Kiswahili code switching, later languages | PLANNED |
 | V0.4 | M19 Discipleship | Reviewed weekly and small-group material | PLANNED |
 | V0.4 | M20 Member Intelligence | Saved notes and church-scoped assistant | PLANNED |
@@ -41,6 +41,6 @@ Security and privacy work begins at M1; M21 is the production hardening gate, no
 6. **M1.6 Evidence:** decision record, evidence labels, translation and privacy gates. ✓
 7. **M1.7 Tests:** positive, false positive, gate and persistence checks. ✓
 
-**Next bite: M14.1.** Define immutable, archive-backed chapter and clip-suggestion drafts with source timecodes and a separate human review gate. M13 model generation is optional and produces draft copy only; no outward send or publication exists. M5.2 remains a field-evidence gate: obtain reviewed permission and a human-labeled holdout corpus, then measure transcription and detector errors on real English/Kiswahili audio. M4.4 contextual and quotation recognition depends on that evidence before it enters the display path. M3.4 requires permissioned recordings, accuracy/latency measures and browser-microphone testing. Other editions need individual source and rights review.
+**Next batch: M18–M20.** Extend the approved-memory layer for explicit English/Kiswahili language metadata and code-switch-aware retrieval, add reviewed discipleship material, and add a consent-first member workspace without inferred member profiling. M14–M17 are complete and remain review-first/read-only where applicable. M5.2 remains a field-evidence gate: obtain reviewed permission and a human-labeled holdout corpus, then measure transcription and detector errors on real English/Kiswahili audio. M4.4 contextual and quotation recognition depends on that evidence before it enters the display path. M3.4 requires permissioned recordings, accuracy/latency measures and browser-microphone testing. Other editions need individual source and rights review.
 
 Before a church pilot, finish operator authentication, full spoken reference detection, offline performance and on-site accuracy evaluation. The [cross-model review](reviews/M2.1_DISPOSITION.md) is triaged against source and tests. Model agreement alone is not a gate.

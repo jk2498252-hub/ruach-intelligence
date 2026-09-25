@@ -27,6 +27,16 @@ The complete M1–M11.1 suite passes **90 tests**.
 
 The complete M1–M11.2 suite passes **93 tests**.
 
-## Next slice
+## M11.3 accepted slice — offline/external dependency behavior
 
-M11.3 will verify external-dependency/offline behavior so provider/network failure cannot damage local live-service state or leave stale output.
+- External transcription calls occur outside the database lock.
+- Provider/network failure leaves locally captured audio intact, creates no transcript/scripture side effect, and does not disturb projector or congregation output.
+- The operator can fall back to a manual/local transcript after provider failure.
+- A late provider response arriving after End Live is rejected by the existing live-session gate and cannot append transcript/scripture state to an ended service.
+- Local scripture presentation and congregation output do not depend on external transcription availability once local state is committed.
+
+The complete M1–M11 suite passes **95 tests**.
+
+## M11 acceptance
+
+M11 now covers startup reconciliation, atomic persistence/degraded mode, and external-dependency failure behavior. Device/network chaos testing in a real church remains part of M23 pilot validation.

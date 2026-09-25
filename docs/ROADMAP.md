@@ -14,7 +14,7 @@ Status labels: **DONE** is implemented and tested locally; **PLANNED** is not im
 | V0.1 | M8 Live Session | Persisted prepared → live → ended lifecycle, live gates, immutable ended boundary, owner/admin post-end audit access | DONE (M8.1–M8.2) |
 | V0.1 | M9 Sermon Archive | Deterministic immutable archive, bounded metadata catalog and authorized single-record retrieval | DONE (M9.1–M9.2) |
 | V0.1 | M10 Congregation Live | Tokenized read-only live scripture, explicit operator notes, optional authorized QR delivery | DONE (M10.1–M10.3) |
-| V0.1 | M11 Resilience | M11.1: startup reconciliation and content-free health status; interrupted-write/database recovery later | IN PROGRESS (M11.1 DONE) |
+| V0.1 | M11 Resilience | M11.1 startup reconciliation; M11.2 transaction/integrity degraded mode; offline dependency behavior next | IN PROGRESS (M11.1–M11.2 DONE) |
 | V0.2 | M12 Sermon Intelligence | Reviewed sermon points, references and summary | PLANNED |
 | V0.2 | M13 Communication | Reviewed WhatsApp-ready recap and descriptions | PLANNED |
 | V0.2 | M14 Content Intelligence | Chapters, excerpts and clip suggestions | PLANNED |

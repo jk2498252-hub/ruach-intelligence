@@ -28,21 +28,29 @@ Migration `009_presentation_state.sql` introduces a singleton projector revision
 
 The complete M1–M7.1 unit suite passes: **53 tests**. Physical projector/browser appearance remains an on-device acceptance test and is not claimed by the automated suite.
 
-## Deferred to later M7 slices
+## M7.2 accepted slice — safe presentation presets
 
-Theme/layout presets, broadcast-specific output, transitions, operator preview, and visual device testing are not part of M7.1.
+- Themes are allow-listed: `dark`, `light`, `high_contrast`.
+- Layouts are allow-listed: `centered`, `lower_third`.
+- Preferences persist across restart and advance the shared presentation revision.
+- Invalid values fail before any state change; the browser maps enums to static CSS only.
 
+## M7.3 accepted slice — authenticated private preview and output hardening
 
-## M7.2 accepted slice
+- Only a signed-in operator who owns the session can fetch an approved preview.
+- Preview revalidates canonical text and rights but does not change display state, ledger, projector assignment, or presentation revision.
+- Preview and public projector snapshots have explicit incompatible output tags.
+- Public display query parameters cannot select or preview arbitrary scripture events.
+- HTML responses add no-store, CSP, frame-denial, referrer and same-origin resource headers.
+- Projector rendering fails clear on disconnect/invalid output and includes portrait/safe-area rules.
 
-M7.2 adds operator-selectable presentation presets while keeping the renderer closed to arbitrary CSS or HTML.
+## M7.4 accepted slice — broadcast output
 
-- Themes are allow-listed: `dark`, `light`, and `high_contrast`.
-- Layouts are allow-listed: `centered` and `lower_third`.
-- Preferences are persisted in SQLite and survive restart.
-- A preset change advances the presentation revision so connected projector clients update without a scripture-state mutation.
-- Invalid theme/layout values fail closed before any database or revision change.
-- The browser maps the returned enum values only to static CSS selectors; there is no `style.cssText`, arbitrary style string, or HTML injection path.
-- When a projector session is selected, a `presentation.changed` ledger event records the actor and selected preset.
+- `/broadcast` and `/api/broadcast` are read-only output surfaces for livestream/browser-source capture.
+- Broadcast state is derived from the projector snapshot; there is no second live scripture state.
+- The broadcast client accepts only the broadcast output tag and fails blank on fetch/output errors.
+- Projector and broadcast share the same canonical verse, revision, rights revalidation, theme/layout and attribution.
 
-Focused M7.2 tests plus the entire existing suite pass: **57 tests**.
+## M7 acceptance
+
+The complete M1–M7 suite passes **63 tests**. Physical projector, capture-card, OBS/browser-source and church-room visual tests remain on-device acceptance work before a pilot.

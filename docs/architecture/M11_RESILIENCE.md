@@ -15,6 +15,18 @@ GET /api/health exposes only content-free diagnostics: schema version, projector
 
 The complete M1–M11.1 suite passes **90 tests**.
 
+## M11.2 accepted slice — interrupted-write and database integrity recovery
+
+- Store startup runs SQLite `PRAGMA integrity_check` before migrations and again after migration.
+- A failed integrity preflight enters content-free degraded mode instead of attempting startup reconciliation or normal operator access.
+- Degraded mode refuses transactional mutations, reports `/api/health`, and makes projector/broadcast/congregation public output fail blank.
+- Operator APIs return HTTP 503 while persistence integrity is failed.
+- Transaction rollback is hardened so a rollback failure itself marks the store degraded.
+- Failure injection late in End Live proves lifecycle, projector, share, presentation revision, event ledger and archive sealing remain atomic: either the whole transition commits or none of it does.
+- A physically corrupted SQLite file is detected in tests and is not treated as a valid service database.
+
+The complete M1–M11.2 suite passes **93 tests**.
+
 ## Next slice
 
-M11.2 should inject interrupted writes and persistence failures, verify transaction atomicity/SQLite integrity, and force degraded startup rather than trusting a failed database.
+M11.3 will verify external-dependency/offline behavior so provider/network failure cannot damage local live-service state or leave stale output.

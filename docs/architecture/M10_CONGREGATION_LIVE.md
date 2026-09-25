@@ -15,6 +15,22 @@ M10.1 adds an explicitly enabled, read-only congregation surface for the current
 
 The complete M1–M10.1 suite passes **83 tests**.
 
-## Next slice
+## M10.2 accepted slice — explicit congregation notes
 
-M10.2 adds optional operator-authored congregation notes with explicit publication controls. QR rendering remains a later M10 slice.
+- Notes are operator-authored only; there is no automatic transcript or AI promotion.
+- Note text is capped at 500 characters and must be explicitly published.
+- Unpublished or cleared notes never appear publicly.
+- The audit ledger stores note length and SHA-256 only, not note text.
+- Ending the service closes publication.
+
+## M10.3 accepted slice — optional QR delivery
+
+- QR support is isolated in the optional `qrcode` extra; core operation remains dependency-free.
+- QR generation requires a currently active share token and owner/admin authorization.
+- The operator supplies an explicit HTTP(S) public base URL; RUACH does not guess a deployment address.
+- Credentialed, query-string, fragment and non-HTTP base URLs are rejected.
+- The QR endpoint returns SVG and embeds no internal session/operator identifiers.
+
+## M10 acceptance
+
+The complete M1–M10 suite passes **87 tests**.

@@ -17,7 +17,7 @@ Status labels: **DONE** is implemented and tested locally; **PLANNED** is not im
 | V0.1 | M11 Resilience | Startup reconciliation, transaction/integrity degraded mode, external-dependency/offline failure behavior | DONE (M11.1–M11.3) |
 | V0.2 | M12 Sermon Intelligence | Reviewed archive-bound drafts and optional provider-neutral model draft adapter | DONE (M12.1–M12.2) |
 | V0.2 | M13 Communication | M13.1 reviewed WhatsApp/video draft container; M13.2 optional model proposal with separate human approval | IN PROGRESS (M13.1–M13.2 DONE) |
-| V0.2 | M14 Content Intelligence | Chapters, excerpts and clip suggestions | PLANNED |
+| V0.2 | M14 Content Intelligence | Next: archive-grounded reviewed chapter/excerpt/clip suggestions with optional model proposals | PLANNED |
 | V0.3 | M15 Church Memory | Church-scoped sermon search | PLANNED |
 | V0.3 | M16 Ask RUACH | Grounded answers with source links and timecodes | PLANNED |
 | V0.3 | M17 Knowledge Governance | Church approvals, correction and removal | PLANNED |

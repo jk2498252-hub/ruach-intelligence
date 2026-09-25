@@ -1,6 +1,6 @@
 # RUACH Intelligence
 
-RUACH carries a church service from the pulpit to the screen, congregation, week, and church memory. **M1 Structural Core**, **M2.3 two complete Bible editions**, **M3.3 optional transcription**, **M4.3 detector regression tests**, **M5.1 an evaluation harness**, and **M6.3b local operator sign-in, owned sessions and explicit projector routing** and **M7 presentation** is implemented through projector state, safe presets, authenticated private preview, and clean broadcast output. **M8 Live Session Engine** is implemented, and **M9 Sermon Archive** is implemented. **M10 Congregation Live** is implemented. **M11 Resilience** is implemented through restart reconciliation, database-integrity degraded recovery, and offline/provider-failure handling. The product roadmap is in [docs/ROADMAP.md](docs/ROADMAP.md).
+RUACH carries a church service from the pulpit to the screen, congregation, week, and church memory. **M1 Structural Core**, **M2.3 two complete Bible editions**, **M3.3 optional transcription**, **M4.3 detector regression tests**, **M5.1 an evaluation harness**, and **M6.3b local operator sign-in, owned sessions and explicit projector routing** and **M7 presentation** is implemented through projector state, safe presets, authenticated private preview, and clean broadcast output. **M8 Live Session Engine** is implemented, and **M9 Sermon Archive** is implemented. **M10 Congregation Live** is implemented. **M11 Resilience** is implemented. **M12.1 reviewed sermon-intelligence drafts** are now implemented. The product roadmap is in [docs/ROADMAP.md](docs/ROADMAP.md).
 
 ## Run the local proof
 
@@ -35,9 +35,9 @@ Baseline imported to GitHub from the saved **RUACH_Intelligence_M6_3b** checkpoi
 
 Local verification before import:
 
-- **95 tests passed**
+- **98 tests passed**
 - **357 detector subtests remain passing**
-- Next implementation bite: **M12.1 reviewed sermon-intelligence drafts**
+- Next implementation bite: **M12.2 optional model draft adapter**
 
 ## Contracts and decisions
 
@@ -51,6 +51,7 @@ Local verification before import:
 - [M9 sermon archive](docs/architecture/M9_SERMON_ARCHIVE.md)
 - [M10 congregation live](docs/architecture/M10_CONGREGATION_LIVE.md)
 - [M11 resilience](docs/architecture/M11_RESILIENCE.md)
+- [M12 sermon intelligence](docs/architecture/M12_SERMON_INTELLIGENCE.md)
 - [Roadmap](docs/ROADMAP.md)
 
 The `ruach_core` package is the source of truth. Nothing in this repository is asserted to be production ready.

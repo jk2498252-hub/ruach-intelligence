@@ -1,65 +1,57 @@
 # RUACH Intelligence
 
-RUACH carries a church service from the pulpit to the screen, congregation, week, and church memory. **M1 Structural Core**, **M2.3 two complete Bible editions**, **M3.3 optional transcription**, **M4.3 detector regression tests**, **M5.1 an evaluation harness**, and **M6.3b local operator sign-in, owned sessions and explicit projector routing** and **M7 presentation** is implemented through projector state, safe presets, authenticated private preview, and clean broadcast output. **M8 Live Session Engine** is implemented, and **M9 Sermon Archive** is implemented. **M10 Congregation Live** is implemented. **M11 Resilience** is implemented. **M12 Sermon Intelligence** is implemented. **M13 Communication Engine**, **M14 Content Intelligence**, **M15 Church Memory**, **M16 Ask RUACH**, **M17 Knowledge Governance**, **M18 Multilingual Intelligence**, **M19 Discipleship**, and the privacy-conservative **M20 Member Workspace** are implemented. The product roadmap is in [docs/ROADMAP.md](docs/ROADMAP.md).
+RUACH is an evidence-first church service intelligence system. The tested local engineering checkpoint currently implements the structural core, Bible data layer, audio/transcription proof, scripture detection/regression harness, operator workflow, presentation, live-service lifecycle, immutable sermon archive, congregation live surface, resilience, reviewed sermon intelligence, reviewed communication, content suggestions, Church Memory, grounded Ask RUACH, knowledge governance, multilingual memory metadata, reviewed discipleship, a consent-first member workspace, security/privacy hardening, and deployment/update verification tooling.
 
-## Run the local proof
+## Engineering verification
 
-Python 3.11+ and no third-party packages are required for this foundation slice.
+The M1–M22 regression gate passes **128/128 tests across 40 test files**.
+
+This is **not** a production-readiness or real-sermon-accuracy claim. The 51 M4.3 cases are an authored regression set, not a field benchmark. M23 requires permissioned real-church testing before production claims.
+
+## Local proof
+
+Python 3.11+ is required. The core runtime is dependency-light. Optional extras are used for QR generation and signed release verification.
 
 ```bash
 python -m unittest discover -s tests -v
-python -m ruach_core.demo
-python -m ruach_core.full_import --db ./ruach-local.sqlite3 --translation ALL
-python -m ruach_core.lookup --db ./ruach-local.sqlite3 --translation SWHONEN --book GEN --chapter 1 --verse 1
 python -m ruach_core.operator_auth --db ./ruach-local.sqlite3 --username operator1 --role operator
 python -m ruach_core.server --db ./ruach-local.sqlite3
-python -m ruach_core.audio_cli --db ./ruach-local.sqlite3 --wav ./sample.wav --transcript ./verbatim.txt --translation SWHONEN --language sw
-python -m ruach_core.transcript_eval ./permissioned_samples.jsonl
-python -m ruach_core.detection_eval data/evaluation/m4_3_labeled_utterances.jsonl
-python -m ruach_core.field_eval data/evaluation/m5_example_manifest.json
 ```
 
-Before starting the server, create a local account using `python -m ruach_core.operator_auth --db ruach-local.sqlite3 --username operator1 --role operator` (the password is prompted, at least 12 characters). Then open `http://127.0.0.1:8765/operator` and `http://127.0.0.1:8765/display` in separate windows.
+For deployment operations:
 
-The operator page restores the latest local session and lists pending, approved-but-not-shown, and held proposals after refresh or server restart. It can dismiss held proposals with a ledger entry and correct a pending single-verse proposal to a verified verse before approval. Each correction records the earlier and new references and hashes in the append-only ledger. Operator action labels come from signed-in local accounts.
+```bash
+ruach-deploy backup --db ./ruach-local.sqlite3 --out ./ruach-backup.sqlite3
+ruach-deploy verify-backup --db ./ruach-backup.sqlite3
+ruach-deploy diagnostics --db ./ruach-local.sqlite3 --out ./diagnostics.json
+```
 
-The bundled publisher archives import ENGWEBP and Biblica Open Kiswahili Contemporary Version (SWHONEN), each with its own 66-book source, rights record and attribution. The M4.1 parser recognizes explicit single-verse references using publisher book headings from all 66 books in English and Kiswahili. A chapter or range becomes a held proposal; the operator can select one verse within it, which still requires a second approval before display.
+## Current boundaries
 
-The 51 authored M4.3 cases are a regression set, not a field accuracy measure. M5.1 adds an aggregate-only evaluation harness for later permissioned, human-labeled recordings. Optional OpenAI file transcription is available when `OPENAI_API_KEY` is set; audio leaves the local computer only when the operator explicitly chooses that service.
+- **M1–M22 engineering scope:** implemented/tested as described in `docs/ROADMAP.md`.
+- **M23 Church Pilot:** required external gate; not yet run.
+- **M24 Commercial Platform:** blocked by M23 results and commercial hosting/tenancy/billing decisions.
+- SQLite storage is **not encrypted at rest by RUACH itself**. Production deployment must provide approved storage encryption/key management and TLS/identity infrastructure.
+- Real English/Kiswahili/code-switch transcription and detection accuracy still requires permissioned field benchmarking.
 
-Only bind this proof server to loopback. The database can contain audio bytes and sermon text; do not use real sermons or personal information with this development proof. Additional translations require separate rights and source review.
+## Key architecture records
 
-## Current checkpoint
-
-Baseline imported to GitHub from the saved **RUACH_Intelligence_M6_3b** checkpoint on 2026-09-25.
-
-Local verification before import:
-
-- **121 tests passed**
-- **357 detector subtests remain passing**
-- Next implementation batch: **M21–M22 production hardening**
-
-## Contracts and decisions
-
-- [Canonical contracts](docs/architecture/CONTRACTS.md)
-- [Architecture and boundaries](docs/architecture/M1.md)
-- [Evidence register](docs/evidence/REGISTER.md)
-- [Translation rights policy](docs/licensing/TRANSLATIONS.md)
-- [Privacy baseline](docs/privacy/BASELINE.md)
-- [M7 presentation engine](docs/architecture/M7_PRESENTATION.md)
-- [M8 live session engine](docs/architecture/M8_LIVE_SESSION.md)
-- [M9 sermon archive](docs/architecture/M9_SERMON_ARCHIVE.md)
-- [M10 congregation live](docs/architecture/M10_CONGREGATION_LIVE.md)
-- [M11 resilience](docs/architecture/M11_RESILIENCE.md)
-- [M12 sermon intelligence](docs/architecture/M12_SERMON_INTELLIGENCE.md)
-- [M13 communication](docs/architecture/M13_COMMUNICATION.md)
-- [M14 content intelligence](docs/architecture/M14_CONTENT_INTELLIGENCE.md)
-- [M15 church memory](docs/architecture/M15_CHURCH_MEMORY.md)
-- [M16 Ask RUACH](docs/architecture/M16_ASK_RUACH.md)
-- [M17 knowledge governance](docs/architecture/M17_KNOWLEDGE_GOVERNANCE.md)
-- [M20 member workspace](docs/architecture/M20_MEMBER_WORKSPACE.md)
-- [M19 discipleship](docs/architecture/M19_DISCIPLESHIP.md)
-- [M18 multilingual intelligence](docs/architecture/M18_MULTILINGUAL_INTELLIGENCE.md)
 - [Roadmap](docs/ROADMAP.md)
+- [M7 Presentation](docs/architecture/M7_PRESENTATION.md)
+- [M8 Live Session](docs/architecture/M8_LIVE_SESSION.md)
+- [M9 Sermon Archive](docs/architecture/M9_SERMON_ARCHIVE.md)
+- [M10 Congregation Live](docs/architecture/M10_CONGREGATION_LIVE.md)
+- [M11 Resilience](docs/architecture/M11_RESILIENCE.md)
+- [M12 Sermon Intelligence](docs/architecture/M12_SERMON_INTELLIGENCE.md)
+- [M13 Communication](docs/architecture/M13_COMMUNICATION.md)
+- [M14 Content Intelligence](docs/architecture/M14_CONTENT_INTELLIGENCE.md)
+- [M15 Church Memory](docs/architecture/M15_CHURCH_MEMORY.md)
+- [M16 Ask RUACH](docs/architecture/M16_ASK_RUACH.md)
+- [M17 Knowledge Governance](docs/architecture/M17_KNOWLEDGE_GOVERNANCE.md)
+- [M18 Multilingual Intelligence](docs/architecture/M18_MULTILINGUAL_INTELLIGENCE.md)
+- [M19 Discipleship](docs/architecture/M19_DISCIPLESHIP.md)
+- [M20 Member Workspace](docs/architecture/M20_MEMBER_WORKSPACE.md)
+- [M21 Security & Privacy](docs/architecture/M21_SECURITY_PRIVACY.md)
+- [M22 Deployment & Updates](docs/architecture/M22_DEPLOYMENT_UPDATES.md)
 
-The `ruach_core` package is the source of truth. Nothing in this repository is asserted to be production ready.
+The executable checkpoint ZIP is the authoritative snapshot for this milestone until the GitHub repository is fully mirrored from that exact archive.
